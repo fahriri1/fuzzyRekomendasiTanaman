@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Fuzzy_Recomendation</title>
+</head>
+<body>
+    <!-- sidebar side -->
+    <div class="sidebar">
+        <div class="upper_sidebar">
+            <img id="logo" src="{{ url_for('static', filename='asset/Logo_foxcode.png')}}">
+            <h2 class="logo_header">FoxCode</h2>
+            <p class="text_header">code solution</p>
+        </div>
+        <div class="button_sidebar">
+            <button class="sidebar_nav">
+                <p class="text_button">Home</p>
+                <img id="triangle" src="{{ url_for('static', filename='asset/asset_triangle.png')}}">
+            </button>
+        </div>
+        <div class="bottom_text">
+            <p class="text_support">Solution by:</p>
+            <p class="email_text">fahririzkis1004@gmail.com</p>
+        </div>
+    </div>
+
+    <!-- main text side -->
+    <h1 class="header">Fuzzy Rekomendasi Tumbuhan</h1>
+    <p class="text_to_header">Dashboard untuk merekomendasikan jenis tanaman yang cocok untuk ditanam dengan beberapa parameter</p>
+    
+    <!-- input column -->
+    <div class="input_parameter">
+        <h3>Input Parameter</h3>
+        <form id="input_form">
+            <input type="text" id="temperatur" name="temp" placeholder="temperatur" required>
+            <input type="text" id="curahHujan" name="rain" placeholder="curah hujan" required>
+            <input type="text" id="humid" name="humid" placeholder="humid" required>
+            <button class="submit">Prediksi</button>
+        </form>
+    </div>
+
+    <!-- output column -->
+    <div class="output_parameter">
+        <h3>Output Rekomendasi</h3>
+
+        <!-- pisang bar -->
+        <div class="card">
+            <img class="icon_tanaman" src="{{url_for('static', filename='asset/banana-icon 1.png')}}">
+            <span class="label" id="pisang_lab">Pisang</span>
+            <span class="percent" id="pisang_per">40%</span>
+            <div class="bar" id="pisang_bar" style="background-color: #FDF2B4;"></div>
+        </div>
+
+        <!-- potato bar -->
+        <div class="card">
+            <img class="icon_tanaman" src="{{url_for('static', filename='asset/potato-icon 1.png')}}">
+            <span class="label" id="potato_lab">Kentang</span>
+            <span class="percent" id="potato_per">70%</span>
+            <div class="bar" id="potato_bar" style="background-color: #E8A660;"></div>
+        </div>
+
+        <!-- jagung bar -->
+        <div class="card">
+            <img class="icon_tanaman" src="{{url_for('static', filename='asset/corn-icon 1.png')}}">
+            <span class="label" id="corn_lab">Jagung</span>
+            <span class="percent" id="corn_per">50%</span>
+            <div class="bar" id="corn_bar" style="background-color: #5E990B;"></div>
+        </div>
+    </div>
+    <script>
+        const input_val = document.getElementById('input_form');
+        const bar1 = document.getElementById('pisang_bar');
+        const bar2 = document.getElementById('potato_bar');
+        const bar3 = document.getElementById('corn_bar');
+
+        input_val.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const formData = {
+                temp: document.getElementById('temperatur').value,
+                rain: document.getElementById('curahHujan').value,
+                humid: document.getElementById('humid').value
+            }
+
+            fetch('/predict',{
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Received data: ', data);
+
+                document.getElementById('pisang_per').textContent = data.pisang + '%';
+                document.getElementById('potato_per').textContent = data.kentang + '%';
+                document.getElementById('corn_per').textContent = data.jagung + '%';
+
+                bar1.style.width = data.pisang + "%";
+                bar2.style.width = data.kentang + "%";
+                bar3.style.width = data.jagung + "%";
+
+                input_val.reset();
+            })
+            .catch(error => console.error('Error:',error))
+        })
+    </script>
+</body>

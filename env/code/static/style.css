@@ -1,0 +1,231 @@
+body{
+    font-family: 'Poppins';
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+h2{
+    font-weight: 600;
+    font-size: 25px;
+    margin: 0%;
+}
+
+h3{
+    font-weight: 800;
+    font-size: 25px;
+}
+
+p{
+    font-weight: 300;
+    font-size: 20px;
+    margin: 0%;
+}
+
+.sidebar{
+    position: relative;
+    width: 297px;
+    height: 100vh;
+    background-color: #800BD3;
+}
+
+.upper_sidebar{
+    position: relative;
+    width: 297px;
+    height: 122px;
+    background-color: #690DAB;
+}
+
+#logo{
+    position: absolute;
+    left: 30px;
+    top: 12px;
+}
+
+.logo_header{
+    position: absolute;
+    color: white;
+    letter-spacing: 0%;
+    top: 27px;
+    left: 124px;
+}
+
+.text_header{
+    position: absolute;
+    color: white;
+    font-weight: 300;
+    font-size: 20px;
+    left: 124px;
+    top: 55px;
+}
+
+.button_sidebar{
+    position: absolute;
+    top: 174px;
+    width: 297px;
+}
+
+.sidebar_nav{
+    height: 30px;
+    width: 297px;
+    background-color: #800BD3;
+    border:0;
+}
+
+.text_button{
+    position: absolute;
+    color: white;
+    font-weight: 600;
+    font-size: 25px;
+    left: 30px;
+}
+
+#triangle{
+    position: absolute;
+    left: 249px;
+}
+
+.bottom_text{
+    position:absolute;
+    text-align: justify;
+    top: 643px;
+}
+
+.text_support{
+    width: 294px;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.email_text{
+    width: 294px;
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.header{
+    position: absolute;
+    color: black;
+    font-weight: 800;
+    font-size: 40px;
+    letter-spacing: 0.4px;
+    top: 3px;
+    left: 345px;
+}
+
+.text_to_header{
+    position: absolute;
+    color: black;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0.4px;
+    top: 90px;
+    left: 345px;
+    width: 717px;
+}
+
+.input_parameter{
+    position: absolute;
+    text-align: center;
+    border: 2px solid rgb(161, 157, 157);
+    border-radius: 30px;
+    top: 206px;
+    left: 349px;
+    width: 394px;
+    height: 324px;
+}
+
+#temperatur{
+    position: relative;
+    width: 343px;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+#curahHujan{
+    position:relative;
+    width: 343px;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+#humid{
+    position:relative;
+    width: 343px;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.submit{
+    position: relative;
+    width: 200px;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #800BD3;
+    color: white;
+}
+
+.submit:hover{
+    background-color: #690DAB;
+}
+
+.output_parameter{
+    position: absolute;
+    text-align: center;
+    border: 2px solid rgb(161, 157, 157);
+    border-radius: 30px;
+    top: 206px;
+    left: 758px;
+    width: 581px;
+    height: 324px;
+}
+
+.card{
+    position: relative;
+    border: 2px solid rgb(161, 157, 157);
+    vertical-align:middle;
+    width: 512px;
+    height: 55px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+
+.icon_tanaman{
+    position: relative;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.label{
+    position: relative;
+    bottom: 8px;
+    margin-right: 10px;
+}
+
+.percent{
+    position: relative;
+    bottom: 8px;
+    font-weight: 800;
+}
+
+.bar{
+    position:absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 60%;
+    z-index: 1;
+    opacity: 40%;
+    border-radius: 20px;
+    transition: width 0.5s;
+}
